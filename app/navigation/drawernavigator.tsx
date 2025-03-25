@@ -15,16 +15,14 @@ import { DrawerContentComponentProps } from "@react-navigation/drawer";
 function CustomDrawerContent({ state, navigation, descriptors }: DrawerContentComponentProps) {
   return (
     <View style={{ flex: 1, backgroundColor: "black", paddingTop: 40 }}>
-      {/* Profile Section */}
       <View style={{ alignItems: "center", marginBottom: 20 }}>
         <Image
           source={require("../../assets/images/aitank.png")}
-          style={{ width: 80, height: 80, borderRadius: 40, marginBottom: 10 }}
+          style={{ width: 220, height: 80, borderRadius: 0, marginBottom: 0 }}
         />
         <Text style={{ color: "white", fontSize: 18, fontWeight: "bold" }}>Menu</Text>
       </View>
 
-      {/* Drawer Items */}
       {state.routes.map((route, index) => {
         const isFocused = state.index === index;
         const { options } = descriptors[route.key];
@@ -52,21 +50,17 @@ function CustomDrawerContent({ state, navigation, descriptors }: DrawerContentCo
 }
 
 
-// Custom Header
 function CustomHeader({ navigation }: any) {
   return (
     <View style={{ flexDirection: "row", alignItems: "center", backgroundColor: "black", height: 60, paddingHorizontal: 15 }}>
-      {/* Open Drawer Button */}
       <TouchableOpacity onPress={() => navigation.openDrawer()}>
         <Ionicons name="menu" size={28} color="white" />
       </TouchableOpacity>
 
-      {/* Logo */}
       <View style={{ flex: 1, alignItems: "center" }}>
         <Image source={require("../../assets/images/aitank.png")} style={{ width: 100, height: 40, resizeMode: "contain" }} />
       </View>
 
-      {/* Login Button */}
       <TouchableOpacity onPress={() => console.log("Go to Sign In")}>
         <Ionicons name="log-in-outline" size={28} color="white" />
       </TouchableOpacity>
@@ -74,13 +68,12 @@ function CustomHeader({ navigation }: any) {
   );
 }
 
-// Drawer Navigator
 export default function DrawerNavigator() {
   return (
     <Drawer.Navigator
       drawerContent={(props) => <CustomDrawerContent {...props} />}
       screenOptions={{
-        drawerStyle: { backgroundColor: "black" }, // Drawer Background
+        drawerStyle: { backgroundColor: "black" }, 
         drawerLabelStyle: { color: "white", fontSize: 16 },
         drawerActiveTintColor: "white",
         drawerInactiveTintColor: "gray",

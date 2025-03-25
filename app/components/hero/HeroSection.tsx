@@ -10,21 +10,20 @@ const HeroSection: React.FC = () => {
   const videoRef = useRef<Video>(null);
   const [isHovered, setIsHovered] = useState(false);
   const scaleAnim = useRef(new Animated.Value(1)).current;
-  const glowAnim = useRef(new Animated.Value(5)).current; // Controls glow effect
+  const glowAnim = useRef(new Animated.Value(5)).current; 
 
   useEffect(() => {
     videoRef.current?.playAsync().catch(console.error);
 
-    // Glow effect animation (pulsing)
     Animated.loop(
       Animated.sequence([
         Animated.timing(glowAnim, {
-          toValue: 20, // Maximum glow
+          toValue: 20,
           duration: 1000,
           useNativeDriver: false,
         }),
         Animated.timing(glowAnim, {
-          toValue: 5, // Minimum glow
+          toValue: 5, 
           duration: 1000,
           useNativeDriver: false,
         }),
@@ -38,15 +37,14 @@ const HeroSection: React.FC = () => {
 
   return (
     <ImageBackground
-      source={require("../../../assets/images/earth.jpg")} // Background image
-      style={{ width: "100%", height: height * 0.6 }}
+      source={require("../../../assets/images/earth.jpg")}
+      style={{ width: "100%", height: height * 0.9 }}
       resizeMode="cover"
     >
       <View style={{ position: "relative", width: "100%", height: "100%" }}>
-        {/* Video Background */}
         <Video
           ref={videoRef}
-          source={require("../../../assets/videos/bg.gif")} // Ensure it's a supported format
+          source={require("../../../assets/videos/bg.gif")}
           style={{ position: "absolute", width: "100%", height: "100%" }}
           resizeMode={ResizeMode.COVER}
           shouldPlay
@@ -54,18 +52,16 @@ const HeroSection: React.FC = () => {
           isMuted
         />
 
-        {/* Dark Overlay */}
         <View
           style={{
             position: "absolute",
             width: "100%",
             height: "100%",
-            backgroundColor: "rgba(0, 0, 0, 0.6)", // Overlay for better readability
+            backgroundColor: "rgba(0, 0, 0, 0.6)", 
             justifyContent: "center",
             alignItems: "center",
           }}
         >
-          {/* Animated Title with Glow */}
           <TouchableOpacity
             onPress={openYouTubeVideo}
             onPressIn={() => {
@@ -93,7 +89,6 @@ const HeroSection: React.FC = () => {
             </Animated.Text>
           </TouchableOpacity>
 
-          {/* Play Button */}
           {isHovered && (
             <View style={{ position: "absolute", bottom: 40 }}>
               <TouchableOpacity onPress={openYouTubeVideo} style={{ alignItems: "center" }}>

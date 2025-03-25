@@ -1,6 +1,6 @@
 import { StatusBar } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
-import DrawerNavigator from "./navigation/drawernavigator"; // Import DrawerNavigator
+import DrawerNavigator from "./navigation/drawernavigator"; 
 
 const Stack = createStackNavigator();
 
