@@ -9,7 +9,7 @@ export default function RootLayout() {
     <>
       <StatusBar barStyle="light-content" backgroundColor="black" />
       <Stack.Navigator screenOptions={{ headerShown: false }}> 
-        <Stack.Screen name="Main" component={DrawerNavigator} />
+        <Stack.Screen name="home" component={DrawerNavigator} />
       </Stack.Navigator>
     </>
   );

@@ -6,6 +6,7 @@ import SearchScreen from "../screens/search";
 import AccountScreen from "../screens/account";
 import AboutScreen from "../screens/About";
 import CommunityScreen from "../screens/community";
+import RegisterScreen from "../screens/signup"; // Updated import
 import IndexScreen from "../index";
 
 const Drawer = createDrawerNavigator();
@@ -49,7 +50,6 @@ function CustomDrawerContent({ state, navigation, descriptors }: DrawerContentCo
   );
 }
 
-
 function CustomHeader({ navigation }: any) {
   return (
     <View style={{ flexDirection: "row", alignItems: "center", backgroundColor: "black", height: 60, paddingHorizontal: 15 }}>
@@ -61,8 +61,8 @@ function CustomHeader({ navigation }: any) {
         <Image source={require("../../assets/images/aitank.png")} style={{ width: 100, height: 40, resizeMode: "contain" }} />
       </View>
 
-      <TouchableOpacity onPress={() => console.log("Go to Sign In")}>
-        <Ionicons name="log-in-outline" size={28} color="white" />
+      <TouchableOpacity onPress={() => navigation.navigate("Register")}> 
+        <Ionicons name="person-add-outline" size={28} color="white" />
       </TouchableOpacity>
     </View>
   );
@@ -81,6 +81,15 @@ export default function DrawerNavigator() {
         headerShown: true,
       }}
     >
+      <Drawer.Screen
+        name="Register"
+        component={RegisterScreen} 
+        options={{ 
+          drawerIcon: ({ color }) => <Ionicons name="person-add-outline" size={22} color={color} />, 
+          drawerItemStyle: { display: "none" } 
+        }}
+      />
+
       <Drawer.Screen
         name="Home"
         component={IndexScreen}

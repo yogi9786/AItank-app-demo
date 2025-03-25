@@ -75,8 +75,8 @@ const HeroSection: React.FC = () => {
           >
             <Animated.Text
               style={{
-                fontSize: 36,
-                color: "#FFF",
+                fontSize: 34,
+                color: "#fff",
                 textAlign: "center",
                 fontWeight: "bold",
                 textShadowColor: "rgba(0, 255, 255, 0.9)", 
@@ -85,7 +85,7 @@ const HeroSection: React.FC = () => {
                 transform: [{ scale: scaleAnim }],
               }}
             >
-              STEP INTO THE {"\n"} FUTURE OF AI
+              STEP INTO THE FUTURE OF AI
             </Animated.Text>
           </TouchableOpacity>
 
