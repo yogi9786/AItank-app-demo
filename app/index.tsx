@@ -3,6 +3,7 @@ import { ScrollView, View, StatusBar } from "react-native";
 import HeroSection from "./components/hero/HeroSection";
 import TestimonialSection from "./components/testonomial/testonomial"; 
 import Gridblock from "./components/grid/gridblock";
+import Textslide from "./components/textslide/textslide";
 
 export default function IndexScreen() {
   return (
@@ -11,6 +12,7 @@ export default function IndexScreen() {
       <ScrollView>
         <HeroSection />
         <Gridblock />
+        <Textslide />
         <TestimonialSection />
       </ScrollView>
     </View>

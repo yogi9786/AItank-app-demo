@@ -6,7 +6,8 @@ import SearchScreen from "../screens/search";
 import AccountScreen from "../screens/account";
 import AboutScreen from "../screens/About";
 import CommunityScreen from "../screens/community";
-import RegisterScreen from "../screens/signup"; // Updated import
+import RegisterScreen from "../screens/signup"; 
+import SignInScreen from "../screens/signin"; // ✅ Add SignIn import
 import IndexScreen from "../index";
 
 const Drawer = createDrawerNavigator();
@@ -46,6 +47,20 @@ function CustomDrawerContent({ state, navigation, descriptors }: DrawerContentCo
           </TouchableOpacity>
         );
       })}
+
+      {/* ✅ Add SignIn button in Drawer */}
+      <TouchableOpacity
+        onPress={() => navigation.navigate("SignIn")}
+        style={{
+          padding: 15,
+          flexDirection: "row",
+          alignItems: "center",
+          backgroundColor: "black",
+        }}
+      >
+        <Ionicons name="log-in-outline" size={22} color="gray" />
+        <Text style={{ color: "gray", marginLeft: 10, fontSize: 16 }}>Sign In</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -81,6 +96,12 @@ export default function DrawerNavigator() {
         headerShown: true,
       }}
     >
+
+      <Drawer.Screen
+        name="Home"
+        component={IndexScreen}
+        options={{ drawerIcon: ({ color }) => <Ionicons name="home-outline" size={22} color={color} /> }}
+      />
       <Drawer.Screen
         name="Register"
         component={RegisterScreen} 
@@ -89,11 +110,13 @@ export default function DrawerNavigator() {
           drawerItemStyle: { display: "none" } 
         }}
       />
-
       <Drawer.Screen
-        name="Home"
-        component={IndexScreen}
-        options={{ drawerIcon: ({ color }) => <Ionicons name="home-outline" size={22} color={color} /> }}
+        name="SignIn" // ✅ Add SignIn screen
+        component={SignInScreen}
+        options={{
+          drawerIcon: ({ color }) => <Ionicons name="log-in-outline" size={22} color={color} />,
+          drawerItemStyle: { display: "none" } 
+        }}
       />
       <Drawer.Screen
         name="Search"
